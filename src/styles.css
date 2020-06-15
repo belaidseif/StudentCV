@@ -1,1 +1,188 @@
-/* You can add global styles to this file, and also import other style files */
+.student-line{
+  border: 1px solid grey;
+  line-height: 80px;
+  padding: 10px;
+  margin-top: 10px;
+  /* border-radius: 10% / 50%; */
+  border-radius: 20px;
+  box-shadow: 10px 5px 5px grey;
+  text-align: center;
+}
+
+.student-image{
+  text-align: center;
+  height: 80px;
+  weight: 80px;
+  border: 1mm ridge #d4cac9;
+  border-radius: 50%;
+}
+.details-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 200px;
+  weight: 200px;
+  border: 2mm ridge #d4cac9;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+.student-name{
+  text-align: left;
+}
+.student-name > span{
+  text-align: left;
+  color: black;
+  font-size: 25px;
+
+}
+.technologie{
+  text-align: left;
+}
+.technologie > span{
+  color: white;
+  background-color: #6d83f2;
+  padding: 7px;
+  border-radius: 5px;
+  margin: 2px;
+}
+.title{
+  position: relative;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border-bottom: 1px solid #DADADA;
+
+}
+.title h2, h4{
+  display: inline-block;
+  text-transform: uppercase;
+}
+.title:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1.5px;
+  height: 3px;
+  width: 100px;
+  background-color: #6d83f2;
+}
+/* Button */
+.main-btn{
+  display: inline-block;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  color: #30323A;
+  background-color: #FFF;
+  -webkit-box-shadow: 0px 0px 0px 1px #DADADA inset, 0px 0px 0px 6px transparent;
+  box-shadow: 0px 0px 0px 1px #DADADA inset, 0px 0px 0px 6px transparent;
+}
+
+.main-btn:hover, .main-btn:focus {
+  color: #6d83f2;
+  -webkit-box-shadow: 0px 0px 0px 1px #6d83f2 inset, 0px 0px 0px 0px #6d83f2;
+  box-shadow: 0px 0px 0px 1px #6d83f2 inset, 0px 0px 0px 0px #6d83f2;
+}
+/* Button */
+
+/* input */
+.input, .input2{
+  width: 50%;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid #DADADA;
+  -webkit-transition: 0.3s all;
+  outline: none;
+  transition: 0.3s all;
+  /* box-shadow: 0px -4px 2px -3px #DADADA inset, 0px 0px 0px 0px transparent; */
+}
+.input[type=text]:focus{
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #6d83f2;
+  box-shadow: 0px -4px 2px -3px #6d83f2 inset, 0px 0px 0px 0px #6d83f2;
+}
+.input2[type=text]:focus{
+  width: 85%;
+  border: none;
+  border-bottom: 1px solid #6d83f2;
+  box-shadow: 0px -4px 2px -3px #6d83f2 inset, 0px 0px 0px 0px #6d83f2;
+}
+/* input */
+
+/* details */
+.profil{
+  /* border: 1px solid black; */
+  box-shadow: 0px 1px 2px grey;
+  border-radius: 5px;
+}
+.details-left{
+  background: #555;
+  text-align:left;
+  padding:20px;
+  color: white;
+}
+.edit-btn{
+  position: absolute;
+  top: 30px;
+  right: 35px;
+  background-color: white;
+  border: none;
+}
+.trash-btn{
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  background-color: white;
+  border: none;
+}
+/* details */
+/* navbar */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+  transition: 0.3s all;
+}
+
+li a:hover {
+  background-color: #111;
+  text-decoration: none;
+  color: #eee;
+}
+.active{
+  background-color: #111;
+  text-decoration: none;
+  color: #eee;
+}
+.logo{
+  display: inline-block;
+  margin-right: 50px;
+  margin-left: 30px;
+  color: white;
+  text-align: center;
+  padding: 11px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 800;
+  font-weight: bold;
+}
+/* navbar */
