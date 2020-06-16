@@ -5,14 +5,14 @@
   margin-top: 10px;
   /* border-radius: 10% / 50%; */
   border-radius: 20px;
-  box-shadow: 10px 5px 5px grey;
+  box-shadow: 5px 2px 2px grey;
   text-align: center;
 }
 
 .student-image{
   text-align: center;
   height: 80px;
-  weight: 80px;
+  width: 80px;
   border: 1mm ridge #d4cac9;
   border-radius: 50%;
 }

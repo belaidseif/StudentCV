@@ -1,23 +1,17 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-2">
-
-    </div>
-    <div class="col-md-8 ">
+<div class="col-md-8">
       <div class="title">
         <h2>List of students</h2>
       </div>
-      <div class="student-line">
+      <div class="student-line" *ngFor="let student of students">
         <div class="row">
           <div class="col-sm-2 ">
-            <img src="../../../assets/img/01.png" class="student-image" alt="">
+            <img [src]="student.image" class="student-image" alt="">
           </div>
           <div class="col-sm-5 student-name">
-            <span >Seifeddin Ben Belaid</span>
+            <span >{{student.name | titlecase}} {{' ' + student.surname | titlecase}}</span>
           </div>
           <div class="col-sm-5 technologie">
-            <span>JAVA JEE</span>
-            <span>JAVA JEE</span>
+            <span *ngFor="let technologie of student.technologies">{{technologie}}</span>
           </div>
         </div>
       </div>
@@ -54,6 +48,7 @@
         <hr>
         <button type="button" class="main-btn" name="button">Add Student</button>
       </div>
-    </div>
-  </div>
+</div>
+<div class="col-md-4">
+  <app-add-student></app-add-student>
 </div>

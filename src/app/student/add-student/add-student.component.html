@@ -1,0 +1,23 @@
+<div style="padding-top: 50px"></div>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" *ngIf="!pending">
+  <input type="text" class="input" placeholder="Name" ngModel name="name" required ><br>
+  <input type="text" class="input" placeholder="Surname" ngModel name="surname" required><br>
+  <input type="text" class="input" placeholder="photo's URL" ngModel  name="image" required><br>
+  <input type="text" class="input2" placeholder="technologie" [(ngModel)]="tech"  name="technologie" >
+  <button type="button" class="main-btn" name="button" (click)="onAddTech()" style="padding: 5px 10px;float: right;">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+  </button>
+  <div class="technologie" style="margin-top:10px;margin-bottom:10px">
+
+    <span *ngFor="let el of technologies">{{el}}</span>
+
+
+  </div>
+  <div style="text-align: right;">
+    <hr>
+    <button type="submit" class="main-btn" [disabled]="!f.valid">Add</button>
+  </div>
+</form>
+<div style="text-align: center; margin-top: 100px;">
+  <app-loading-spinner *ngIf="pending"></app-loading-spinner>
+</div>
