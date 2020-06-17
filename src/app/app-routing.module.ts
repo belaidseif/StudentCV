@@ -5,7 +5,13 @@ import {ListStudentComponent} from './student/list-student/list-student.componen
 import {StudentResolverService} from './student/student-resolver.service';
 
 const routes: Routes = [
-  {path: 'list-student', component: ListStudentComponent, resolve: [TechnologieResolverService, StudentResolverService]}
+  {path: '', pathMatch: 'full', redirectTo: 'list-student'},
+  {path: 'list-student', component: ListStudentComponent, resolve: [TechnologieResolverService, StudentResolverService]},
+  {path: 'list-student/details/:id', component: ListStudentComponent, resolve: [TechnologieResolverService, StudentResolverService]},
+  {path: 'list-student/add', component: ListStudentComponent, resolve: [TechnologieResolverService, StudentResolverService]},
+  {path: 'list-student/edit/:id', component: ListStudentComponent, resolve: [TechnologieResolverService, StudentResolverService]}
+
+
 ];
 
 @NgModule({

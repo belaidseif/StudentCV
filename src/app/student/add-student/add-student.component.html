@@ -1,23 +1,42 @@
 <div style="padding-top: 50px"></div>
-<form #f="ngForm" (ngSubmit)="onSubmit(f)" *ngIf="!pending">
-  <input type="text" class="input" placeholder="Name" ngModel name="name" required ><br>
-  <input type="text" class="input" placeholder="Surname" ngModel name="surname" required><br>
-  <input type="text" class="input" placeholder="photo's URL" ngModel  name="image" required><br>
-  <input type="text" class="input2" placeholder="technologie" [(ngModel)]="tech"  name="technologie" >
-  <button type="button" class="main-btn" name="button" (click)="onAddTech()" style="padding: 5px 10px;float: right;">
-    <i class="fa fa-plus" aria-hidden="true"></i>
-  </button>
+<form  (ngSubmit)="onSubmit(frm)" #frm="ngForm" *ngIf="!pending">
+  <input type="text" class="input" placeholder="Name" ngModel name="name" [(ngModel)]="name" required ><br>
+  <input type="text" class="input" placeholder="Surname"  name="surname" [(ngModel)]="surname" ngModel required><br>
+  <input type="text" class="input" placeholder="photo's URL" ngModel name="image" [(ngModel)]="image" required><br>
   <div class="technologie" style="margin-top:10px;margin-bottom:10px">
-
-    <span *ngFor="let el of technologies">{{el}}</span>
-
-
+    <span *ngFor="let el of technologies; let i = index;">{{el}} <i (click)="onDeleteTek(i)" class="fa fa-minus-square center"></i></span>
   </div>
+
+
+<!--  autocomplete-->
+  <div class="input">
+    <ng-autocomplete
+      [data]="listTechnologies"
+      [searchKeyword]="keyword"
+      (selected)='selectEvent($event)'
+      (inputChanged)='onChangeSearch($event)'
+      (inputFocused)='onFocused($event)'
+      [itemTemplate]="itemTemplate"
+      [notFoundTemplate]="notFoundTemplate"
+      #auto>
+    </ng-autocomplete>
+
+    <ng-template #itemTemplate let-item>
+      <a [innerHTML]="item"></a>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFound>
+      <div [innerHTML]="notFound"></div>
+    </ng-template>
+  </div>
+<!--  autocomplete-->
+
   <div style="text-align: right;">
     <hr>
-    <button type="submit" class="main-btn" [disabled]="!f.valid">Add</button>
+    <button type="submit" class="main-btn" [disabled]="!frm.valid">{{isEdit?'Edit':'Add'}}</button>
   </div>
 </form>
 <div style="text-align: center; margin-top: 100px;">
   <app-loading-spinner *ngIf="pending"></app-loading-spinner>
 </div>
+

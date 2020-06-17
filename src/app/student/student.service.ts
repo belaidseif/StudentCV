@@ -38,4 +38,26 @@ export class StudentService {
       this.setStudents(studentToset);
     });
   }
+
+  delete(student: Student): Promise<boolean> {
+    return new Promise<boolean>(((resolve, reject) => {
+      this.http.delete('https://studentcv-e105a.firebaseio.com/students/'+student.id+'.json').subscribe(res => {
+        console.log(res);
+        this.get();
+        resolve(false);
+        reject(false);
+      });
+    }));
+
+  }
+
+  put(student: Student, id: string) {
+    return new Promise<boolean>((resolve, reject) => {
+      this.http.put("https://studentcv-e105a.firebaseio.com/students/"+id+".json", student).subscribe(res => {
+        this.get();
+        resolve(false);
+        reject(false);
+      });
+    });
+  }
 }

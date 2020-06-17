@@ -1,4 +1,4 @@
-<div class="col-md-8">
+<div [ngClass]="classCss" >
       <div class="title">
         <h2>List of students</h2>
       </div>
@@ -8,47 +8,21 @@
             <img [src]="student.image" class="student-image" alt="">
           </div>
           <div class="col-sm-5 student-name">
-            <span >{{student.name | titlecase}} {{' ' + student.surname | titlecase}}</span>
+            <span><a style="cursor: pointer" [routerLink]="['/list-student/details', student.id]">{{student.name | titlecase}} {{' ' + student.surname | titlecase}}</a></span>
           </div>
           <div class="col-sm-5 technologie">
             <span *ngFor="let technologie of student.technologies">{{technologie}}</span>
           </div>
         </div>
       </div>
-      <div class="student-line">
-        <div class="row">
-          <div class="col-sm-2 ">
-            <img src="../../../assets/img/02.png" class="student-image" alt="">
-          </div>
-          <div class="col-sm-5 student-name">
-            <span >Wajdi Makhlouf</span>
-          </div>
-          <div class="col-sm-5 technologie">
-            <span>Spring</span>
-          </div>
-        </div>
-      </div>
-      <div class="student-line">
-        <div class="row">
-          <div class="col-sm-2 ">
-            <img src="../../../assets/img/03.png" class="student-image" alt="">
-          </div>
-          <div class="col-sm-5 student-name">
-            <span >Walid Hmissi</span>
-          </div>
-          <div class="col-sm-5 technologie">
-            <span>JAVA JEE</span>
-            <span>Angular</span>
-            <span>Symfoni</span>
-
-          </div>
-        </div>
-      </div>
       <div style="text-align: right;">
         <hr>
-        <button type="button" class="main-btn" name="button">Add Student</button>
+        <button type="button" class="main-btn" name="button" [routerLink]="['/list-student/add']">Add Student</button>
       </div>
 </div>
-<div class="col-md-4">
+<div class="col-md-7 profil" style="margin-top: 50px;" *ngIf="modeDetails" [@divState]="state">
+  <app-details-student ></app-details-student>
+</div>
+<div class="col-md-5" *ngIf="modeAdd" [@divState]="state">
   <app-add-student></app-add-student>
 </div>
